@@ -10,8 +10,8 @@ export default function Home() {
 
   return (
     <main>
-      <div className="flex flex-col w-full min-h-[calc(100vh-10rem)] justify-center items-center ">
-        <div className="w-auto justify-center items-center laptop:w-2/3 grid grid-cols-1 laptop:grid-cols-2 gap-4 ">
+      <div className="flex flex-col w-full min-h-[calc(100vh-10rem)] items-center mt-4">
+        <div className="w-auto tablet:w-1/2 desktop:w-1/3  ">
           {postPreviews}
         </div>
       </div>

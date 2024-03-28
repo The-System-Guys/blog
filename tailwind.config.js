@@ -1,7 +1,6 @@
-import type { Config } from 'tailwindcss'
+/** @type {import('tailwindcss').Config} */
 
-/* eslint-disable global-require */
-const config: Config = {
+module.exports = {
   mode: 'jit',
   darkMode: 'class',
   content: [
@@ -41,11 +40,8 @@ const config: Config = {
         purpose: {
           100: '#c3b4fc1a',
         },
-        'black-rgba': 'rgba(0, 0, 0, 0.8)',
       },
     },
   },
   plugins: [require('@tailwindcss/typography')],
 }
-
-export default config

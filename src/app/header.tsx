@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
 import { MoonIcon, SunIcon } from 'lucide-react'
-import GoatLogo from '@/public/goat-large.png'
+import Brain from '@/public/favicon/android-chrome-512x512.png'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -19,51 +19,49 @@ const navigationItems = [
 
 const Header = () => {
   return (
-    <header>
-      <div className="w-full flex">
-        <div className="w-full items-center mobile:flex justify-between">
-          <div className="flex flex-wrap tablet:inline-block tablet:mr-12">
-            <Link className="flex flex-row items-center w-fit m-4" href="/">
-              <Image
-                alt="Picture of the Hallucination Guys"
-                className="w-16 h-16 mr-2 rounded-full object-cover object-center"
-                src={GoatLogo}
-              />
-              <p className="text-xl font-bold hover:underline whitespace-nowrap">
-                Hallucination Guys
-              </p>
-            </Link>
-          </div>
+    <div className="w-full mobile:flex justify-center items-center">
+      <div className="tablet:w-[40rem] desktop:w-[50rem] mobile:flex justify-between items-center mt-8 ">
+        <div className="flex flex-wrap tablet:inline-block tablet:mr-12 justify-center">
+          <Link className="flex flex-row items-center" href="/">
+            <Image
+              alt="Picture of the Hallucination Guys "
+              className="w-[60px] h-[60px] mr-2 rounded-full object-cover object-center bg-transparent"
+              src={Brain}
+            />
+            <p className="text-xl font-bold whitespace-nowrap">
+              Hallucination Guys
+            </p>
+          </Link>
+        </div>
 
-          <div className="mx-4 mt-4 flex-wrap tablet:inline-block tablet:ml-12 hidden mobile:flex">
-            <nav className="flex flex-row justify-end ">
-              <ModeToggle />
-              <div className="items-center px-4 self-center">
-                <ul className="flex flex-row whitespace-nowrap">
-                  {navigationItems.map((item, idx) => (
-                    <li
-                      key={idx}
-                      className="text-gray-700 dark:text-gray-700  hover:underline mx-2 "
+        <div className="flex-wrap tablet:inline-block tablet:ml-12 hidden mobile:flex">
+          <nav className="flex flex-row justify-center items-center">
+            <ThemeMenu />
+            <div className="items-center px-4">
+              <ul className="flex flex-row whitespace-nowrap">
+                {navigationItems.map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="text-gray-700 dark:text-gray-700  hover:underline mx-2 "
+                  >
+                    <Link
+                      className="text-gray-700 dark:text-gray-300 hover:text-pink-700 dark:hover:text-pink-700"
+                      href={item.path}
                     >
-                      <Link
-                        className="text-gray-700 dark:text-gray-300 hover:text-pink-700 dark:hover:text-pink-700"
-                        href={item.path}
-                      >
-                        {item.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </nav>
-          </div>
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </nav>
         </div>
       </div>
-    </header>
+    </div>
   )
 }
 
-export function ModeToggle() {
+export function ThemeMenu() {
   const { setTheme } = useTheme()
   return (
     <DropdownMenu>
@@ -71,24 +69,23 @@ export function ModeToggle() {
         <Button className="bg-transparent" size="icon" variant="outline">
           <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
           <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 dark:text-white" />
-          <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" className="bg-white text-black">
         <DropdownMenuItem
-          className="hover:bg-gray-200 dark:hover:text-black font-semibold"
+          className="hover:bg-gray-200 font-semibold"
           onClick={() => setTheme('light')}
         >
           Light
         </DropdownMenuItem>
         <DropdownMenuItem
-          className="hover:bg-gray-200 dark:hover:text-black font-semibold"
+          className="hover:bg-gray-200 font-semibold"
           onClick={() => setTheme('dark')}
         >
           Dark
         </DropdownMenuItem>
         <DropdownMenuItem
-          className="hover:bg-gray-200 dark:hover:text-black font-semibold"
+          className="hover:bg-gray-200 font-semibold"
           onClick={() => setTheme('system')}
         >
           System

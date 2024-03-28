@@ -37,42 +37,19 @@ img {
     --ring: 0 0% 3.9%;
     --radius: 0.5rem;
     article {
-      li,
-      p,
-      h1,
-      h2,
-      h3,
-      h4,
-      strong {
-        color: #000000;
-      }
-      a {
-        font-weight: 700;
-        color: #000000;
-      }
-
       a:hover {
         color: #0000ee;
         text-decoration: underline;
       }
-      img {
-        width: auto;
-        align-items: center;
-      }
 
-      pre {
-        ::selection {
-          background: rgba(255, 255, 255, 0.15);
-        }
-      }
       ::selection {
-        background: rgba(225, 63, 94, 0.2);
+        background: rgba(225, 63, 94, 0.1);
       }
     }
   }
 
   .dark {
-    --background: rgba(0, 0, 0, 0.8);
+    --background: #1b1b1f;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
@@ -92,30 +69,29 @@ img {
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
     article {
-      li,
-      p,
-      h1,
-      h2,
-      h3,
-      h4,
-      strong,
-      code {
-        color: #ffffff;
-      }
-
-      a {
-        font-weight: 700;
-        text-decoration: underline;
-        color: #ffffff;
-      }
-
       a:hover {
         text-decoration: underline;
         color: #e13f5e;
       }
-    }
-    ::selection {
-      background: rgba(255, 255, 255, 0.15);
+      ::selection {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      pre {
+        border: 2px solid gray;
+      }
     }
   }
+}
+
+.prose :where(a):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+  color: none;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.prose :where(code):not(:where([class~='not-prose'] *))::before {
+  content: '';
+}
+.prose :where(code):not(:where([class~='not-prose'] *))::after {
+  content: '';
 }

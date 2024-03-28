@@ -13,23 +13,20 @@ const inter = Nunito_Sans({
 export const metadata: Metadata = {
   title: 'Hallucination Guys Blog',
   description:
-    'Awsome blog talk about technical software engineering and architecture',
+    'Awesome blog talk about technical software engineering and architecture',
   icons: {
     icon: [
       {
-        media: '(prefers-color-scheme: light)',
-        url: '/public/favicon-32x32.png',
-        href: '/public/favicon-32x32.png',
+        url: '/favicon/favicon-32x32.png',
+        href: '/favicon/favicon-32x32.png',
       },
       {
-        media: '(prefers-color-scheme: light)',
-        url: '/public/favicon-16x16.png',
-        href: '/public/favicon-16x16.png',
+        url: '/favicon/favicon-16x16.png',
+        href: '/favicon/favicon-16x16.png',
       },
       {
-        media: '(prefers-color-scheme: light)',
-        url: '/public/apple-touch-icon.png',
-        href: '/public/apple-touch-icon.png',
+        url: '/favicon/apple-touch-icon.png',
+        href: '/favicon/apple-touch-icon.png',
       },
     ],
   },
